@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aditya Nukala · Product Leader</title>
+  <meta name="description" content="Aditya Nukala: product leader with 18+ years in enterprise data platforms and digital modernization.">
+  <style>
+    :root {
+      --dark: #0d0d0f;
+      --light: #f5f2ee;
+      --accent: #d9480f;          /* the only accent colour; used for large type only */
+      --muted-on-dark: #a8a6a2;
+      --muted-on-light: #5c5a57;
+      --gutter: clamp(20px, 6vw, 96px);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-weight: 300;
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      line-height: 1.7;
+      background: var(--dark);
+      color: var(--light);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+
+    /* Minimal fixed nav that reads on both dark and light sections */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px var(--gutter);
+      color: #fff; mix-blend-mode: difference;
+      font-size: 0.85rem; letter-spacing: 0.04em;
+    }
+    .nav a { text-decoration: none; }
+    .nav ul { display: flex; gap: 24px; list-style: none; }
+    .nav ul a { opacity: 0.8; }
+    .nav ul a:hover { opacity: 1; }
+
+    /* One idea per screen; sections alternate dark and light */
+    main > section {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px var(--gutter);
+    }
+    main > section:nth-child(odd)  { background: var(--dark);  color: var(--light); --muted: var(--muted-on-dark); }
+    main > section:nth-child(even) { background: var(--light); color: var(--dark);  --muted: var(--muted-on-light); }
+    .inner { max-width: 1100px; width: 100%; margin: 0 auto; }
+
+    /* Type: very large display, calm body, two weights (300 and 500) */
+    h1, h2 {
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      overflow-wrap: break-word;
+    }
+    h1 { font-size: clamp(3.2rem, 14vw, 11rem); }
+    h2 { font-size: clamp(2.6rem, 9vw, 7.5rem); }
+    h1::after, h2::after { content: ""; }
+    .eyebrow {
+      font-weight: 500; font-size: 0.8rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 28px;
+    }
+    .lead { max-width: 34ch; margin-top: 32px; color: var(--muted); font-size: clamp(1.15rem, 2.2vw, 1.6rem); line-height: 1.5; }
+    p.body { max-width: 38rem; margin-top: 32px; }
+    .meta { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
+    .stat {
+      font-size: clamp(4.5rem, 19vw, 15rem);
+      font-weight: 300; line-height: 0.95; letter-spacing: -0.05em;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .stat + h2 { font-size: clamp(1.8rem, 5vw, 3.6rem); }
+    .tags { margin-top: 28px; font-size: 0.85rem; letter-spacing: 0.06em; color: var(--muted); }
+
+    .avatar {
+      width: 112px; height: 112px; border-radius: 50%; object-fit: cover;
+      margin-bottom: 36px; background: #1c1c20;
+    }
+    .links { margin-top: 44px; display: flex; gap: 32px; flex-wrap: wrap; }
+    .links a, .textlink {
+      font-weight: 500; text-decoration: none;
+      border-bottom: 1px solid currentColor; padding-bottom: 3px;
+    }
+    .links a:hover, .textlink:hover { color: var(--accent); }
+
+    .list { list-style: none; margin-top: 40px; columns: 2 280px; column-gap: 48px; }
+    .list li { padding: 10px 0; border-top: 1px solid rgba(128,128,128,.3); break-inside: avoid; }
+
+    .role { color: var(--muted); font-weight: 500; margin-top: 18px; }
+    .role + .meta { margin-top: 4px; }
+    ul.points { list-style: none; margin-top: 36px; max-width: 40rem; }
+    ul.points li { padding: 12px 0 12px 22px; position: relative; color: var(--muted); }
+    ul.points li::before { content: ""; position: absolute; left: 0; top: 1.35em; width: 8px; height: 1px; background: currentColor; }
+
+    .edu { list-style: none; margin-top: 40px; max-width: 40rem; }
+    .edu li { padding: 16px 0; border-top: 1px solid rgba(128,128,128,.3); }
+    .edu strong { font-weight: 500; display: block; }
+    .edu small { color: var(--muted); font-size: 0.95rem; }
+
+    .linkedin { display: inline-flex; align-items: center; gap: 12px; margin-top: 40px; font-weight: 500; text-decoration: none; }
+    .linkedin svg { width: 28px; height: 28px; fill: currentColor; }
+    .linkedin:hover { color: var(--accent); }
+    footer { margin-top: 96px; font-size: 0.85rem; color: var(--muted); }
+
+    /* Motion: gentle fade and rise on scroll (only when JS is on) */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    .js .reveal.d1 { transition-delay: 0.12s; }
+    .js .reveal.d2 { transition-delay: 0.24s; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+    @media (max-width: 600px) {
+      .nav ul { gap: 14px; }
+      .nav ul li:nth-child(n+4) { display: none; }
+    }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <header class="nav">
+    <a href="#top">Aditya Nukala</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- 1. Hero (dark) -->
+    <section>
+      <div class="inner">
+        <!-- Save your photo as profile.jpg next to this file -->
+        <img class="avatar reveal" src="profile.jpg" alt="Portrait of Aditya Nukala" onerror="this.remove()">
+        <div class="eyebrow reveal">Product Leader · Enterprise Data Platforms · Digital Modernization</div>
+        <h1 class="reveal d1">Aditya Nukala.</h1>
+        <p class="lead reveal d2">I turn complex enterprise and data platform challenges into clear product strategy, roadmaps and measurable outcomes.</p>
+        <p class="meta reveal d2">Bengaluru, Karnataka, India</p>
+        <div class="links reveal d2">
+          <a href="#impact">See my impact</a>
+          <a href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About (light) -->
+    <section id="about">
+      <div class="inner">
+        <h2 class="reveal">About.</h2>
+        <p class="meta reveal d1">18+ years across retail, e-commerce and enterprise platforms.</p>
+        <p class="body reveal d1">I've led greenfield modernization, foundational data products, subscription analytics and global technology delivery. I'm known for aligning senior stakeholders, leading cross-functional teams, simplifying complex ecosystems and building high-performing organizations from the ground up.</p>
+      </div>
+    </section>
+
+    <!-- 3. Expertise (dark) -->
+    <section>
+      <div class="inner">
+        <h2 class="reveal">Where I work.</h2>
+        <ul class="list reveal d1">
+          <li>Product Strategy &amp; Roadmaps</li>
+          <li>Data Products &amp; Platforms</li>
+          <li>Enterprise Modernization</li>
+          <li>Stakeholder Alignment</li>
+          <li>Cross-Functional Leadership</li>
+          <li>Product Discovery &amp; Delivery</li>
+          <li>Metadata, Lineage &amp; Data Trust</li>
+          <li>E-commerce &amp; Subscriptions</li>
+          <li>Agile Product Management</li>
+          <li>Production Reliability &amp; Observability</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4-9. Selected impact: one result per screen -->
+    <section id="impact">
+      <div class="inner">
+        <div class="stat reveal">~$4B</div>
+        <h2 class="reveal d1">Mainframe replacement.</h2>
+        <p class="body reveal d2">Led strategy and delivery of greenfield Accounts Payable and Receivable capabilities for an order-processing platform, replacing a mainframe system supporting about $4B in revenue.</p>
+        <p class="tags reveal d2">Nike · Enterprise modernization</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">Central metadata platform.</h2>
+        <p class="body reveal d1">Set the vision and roadmap for a single trusted source of data-asset metadata, surfacing lineage, provenance and freshness signals.</p>
+        <p class="tags reveal d2">Nike · Data trust</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="stat reveal">~75%</div>
+        <h2 class="reveal d1">Revenue-leakage prevention.</h2>
+        <p class="body reveal d2">Took a reporting and analytics product for the subscription business from concept to launch, contributing to about 75% year-over-year revenue-leakage prevention.</p>
+        <p class="tags reveal d2">Dell Technologies · Subscription analytics</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="stat reveal">~38%</div>
+        <h2 class="reveal d1">Client revenue growth.</h2>
+        <p class="body reveal d2">Delivered zero downtime during peak holiday periods and cut abandoned carts through sustained monitoring for retail e-commerce clients.</p>
+        <p class="tags reveal d2">Cavisson Systems · Performance &amp; reliability</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="stat reveal">~60%</div>
+        <h2 class="reveal d1">Fewer critical incidents.</h2>
+        <p class="body reveal d2">Guided an end-to-end security analytics data-pipeline proof of concept, contributing to about 60% fewer critical security incidents.</p>
+        <p class="tags reveal d2">AiEnterprise · Data engineering</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="stat reveal">20</div>
+        <h2 class="reveal d1">A team, from inception.</h2>
+        <p class="body reveal d2">Founded and scaled an India offshore unit from inception to a 20-member organization, and delivered a B2C MVP in five months.</p>
+        <p class="tags reveal d2">8L Design · Team building</p>
+      </div>
+    </section>
+
+    <!-- 10-16. Experience: one role per screen -->
+    <section id="experience">
+      <div class="inner">
+        <h2 class="reveal">Nike.</h2>
+        <p class="role reveal d1">Product Manager</p>
+        <p class="meta reveal d1">Oct 2022 – Present · Bengaluru</p>
+        <ul class="points reveal d2">
+          <li>Spearheaded strategy and end-to-end delivery of greenfield Accounts Payable and Receivable capabilities for an order-processing platform, advancing the replacement of a mainframe supporting about $4B in revenue.</li>
+          <li>Directed a portfolio of data products across Consumer and Marketplace Data Foundations, aligning business, analytics, engineering and governance leaders.</li>
+          <li>Drove data-asset rationalization, uncovering redundant tables and views and simplifying the data footprint.</li>
+          <li>Established the vision and roadmap for a central metadata platform, connecting data products to metrics, KPIs and dashboards.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">Dell Technologies.</h2>
+        <p class="role reveal d1">Product Manager</p>
+        <p class="meta reveal d1">Aug 2020 – Oct 2022 · Bengaluru</p>
+        <ul class="points reveal d2">
+          <li>Led strategy and concept-to-launch delivery of a reporting and analytics product for the subscription business, contributing to about 75% year-over-year revenue-leakage prevention.</li>
+          <li>Owned the roadmap and translated complex subscription needs into prioritized capabilities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">AiEnterprise Inc.</h2>
+        <p class="role reveal d1">Project Manager, Data Engineering &amp; Data Science</p>
+        <p class="meta reveal d1">Oct 2019 – Aug 2020 · Bengaluru</p>
+        <ul class="points reveal d2">
+          <li>Guided a cross-functional team building an end-to-end security analytics pipeline proof of concept, from ingestion to visualization.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">Cavisson Systems, Inc.</h2>
+        <p class="role reveal d1">Technical Manager</p>
+        <p class="meta reveal d1">Apr 2017 – Oct 2019 · Hyderabad</p>
+        <ul class="points reveal d2">
+          <li>Led performance engineering and production-reliability engagements for retail e-commerce clients, enabling zero downtime at peak holiday periods.</li>
+          <li>Drove monitoring and issue resolution that reduced abandoned carts and contributed to nearly 38% client-revenue growth.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">8L Design Inc.</h2>
+        <p class="role reveal d1">Senior Product Delivery Manager</p>
+        <p class="meta reveal d1">Oct 2014 – Apr 2017 · Hyderabad</p>
+        <ul class="points reveal d2">
+          <li>Founded and scaled the India offshore unit for a US-based services company to a 20-member organization.</li>
+          <li>Directed production support for US retail clients, including American Eagle, and led adoption of Splunk and New Relic.</li>
+          <li>Led MVP delivery of a B2C product in five months, helping the founders advance fundraising conversations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">Nisum Technologies, Inc.</h2>
+        <p class="role reveal d1">Associate / Junior Project Manager</p>
+        <p class="meta reveal d1">Feb 2013 – Sep 2014 · Hyderabad</p>
+        <ul class="points reveal d2">
+          <li>Managed technology-delivery initiatives and created a biweekly internal forum for engineers to share emerging technologies and best practices.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2 class="reveal">Oracle India Pvt. Ltd.</h2>
+        <p class="role reveal d1">Lead Solutions Engineer (four roles over seven years)</p>
+        <p class="meta reveal d1">Dec 2005 – Feb 2013 · Bengaluru</p>
+        <ul class="points reveal d2">
+          <li>Delivered Oracle application solutions and guided customers through complex implementations.</li>
+          <li>Introduced an in-house implementation approach that cut delivery from nine months to under four; won the BRAVO Consultant of the Quarter award.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 17. Education -->
+    <section id="education">
+      <div class="inner">
+        <h2 class="reveal">Education and certifications.</h2>
+        <ul class="edu reveal d1">
+          <li><strong>Executive MBA, Product Leadership</strong><small>Institute of Product Leadership · Aug 2026 – Mar 2028 (in progress)</small></li>
+          <li><strong>Bachelor of Engineering, Electronics &amp; Communication Engineering</strong><small>Anna University · 2001 – 2005</small></li>
+          <li><strong>Postgraduate Certificate in Big Data Analytics and Optimization</strong><small>INSOFE</small></li>
+          <li><strong>Product Management Certification</strong><small>ISB</small></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 18. Contact -->
+    <section id="contact">
+      <div class="inner">
+        <h2 class="reveal">Let's connect.</h2>
+        <p class="body reveal d1">The best way to reach me is on LinkedIn.</p>
+        <a class="linkedin reveal d2" href="https://www.linkedin.com/in/anukala/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <footer>© <span id="year"></span> Aditya Nukala</footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add('in'));
+    }
+  </script>
+</body>
+</html>
