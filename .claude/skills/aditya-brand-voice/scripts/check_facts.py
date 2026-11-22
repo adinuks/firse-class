@@ -30,6 +30,8 @@ def pieces(block: str, tags):
     found = []
     for tag in tags:
         for m in re.findall(rf"<{tag}\b[^>]*>(.*?)</{tag}>", block, flags=re.S):
+            if tag == "li" and re.search(r"<(ul|ol|li)\b", m):
+                continue  # a wrapper around a nested list; its inner items are checked on their own
             text = norm(m)
             if len(text) > 3 and text not in found:
                 found.append(text)
