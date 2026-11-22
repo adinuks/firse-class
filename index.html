@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hey AI</title>
+  <style>
+    :root {
+      --bg-top: #1a0000;
+      --bg-bottom: #000;
+      --fire: #ff4500;
+      --ember: #ffb347;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 16px;
+      background: radial-gradient(ellipse at bottom, #5a0a00 0%, var(--bg-top) 45%, var(--bg-bottom) 100%);
+      color: var(--ember);
+      font-family: Georgia, "Times New Roman", serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 10vw, 7rem);
+      color: #fff3e0;
+      text-shadow:
+        0 0 10px var(--ember),
+        0 0 25px var(--fire),
+        0 0 50px var(--fire),
+        0 0 80px #b00000;
+      animation: flicker 2.5s infinite alternate;
+    }
+    p {
+      font-size: clamp(1.5rem, 6vw, 3.5rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fire);
+      text-shadow: 0 0 12px #b00000;
+    }
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.6; }
+    }
+    .ember {
+      position: fixed;
+      bottom: -10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ember);
+      box-shadow: 0 0 8px var(--fire);
+      animation: rise linear infinite;
+      pointer-events: none;
+    }
+    @keyframes rise {
+      to { transform: translateY(-110vh) translateX(var(--drift)); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey AI,</h1>
+  <p>This is Hell</p>
+
+  <script>
+    for (let i = 0; i < 40; i++) {
+      const e = document.createElement('div');
+      e.className = 'ember';
+      e.style.left = Math.random() * 100 + 'vw';
+      e.style.animationDuration = 4 + Math.random() * 6 + 's';
+      e.style.animationDelay = -Math.random() * 10 + 's';
+      e.style.setProperty('--drift', (Math.random() * 100 - 50) + 'px');
+      document.body.appendChild(e);
+    }
+  </script>
+</body>
+</html>
