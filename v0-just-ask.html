@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aditya Nukala · Portfolio</title>
-  <meta name="description" content="Portfolio of Aditya Nukala">
+  <title>Aditya Nukala · Product Leader</title>
+  <meta name="description" content="Aditya Nukala: product leader with 18+ years in enterprise data platforms and digital modernization.">
   <style>
     :root {
       --bg: #0b0b0f;
@@ -90,6 +90,16 @@
     .linkedin:hover { color: #0a66c2; }
     footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
 
+    .role { color: var(--accent); font-weight: 600; letter-spacing: .04em; font-size: .85rem; text-transform: uppercase; margin-bottom: 12px; }
+    .loc { color: var(--muted); font-size: .9rem; margin-top: 20px; }
+    .stat { font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1.1; margin-bottom: 6px; }
+    .timeline ul { margin: 8px 0 0 18px; color: var(--muted); font-size: .95rem; }
+    .timeline ul li { margin-bottom: 6px; position: static; }
+    .timeline ul li::before { display: none; }
+    .timeline h3 span { color: var(--muted); font-weight: 400; }
+    .edu { list-style: none; }
+    .edu li { margin-bottom: 14px; }
+    .edu small { color: var(--muted); display: block; }
     @media (max-width: 600px) {
       .nav ul { gap: 12px; }
       .hero { padding: 64px 0 48px; }
@@ -103,8 +113,9 @@
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#impact">Impact</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -115,51 +126,79 @@
     <div class="hero wrap">
       <!-- Save your photo as profile.jpg next to this file -->
       <img class="avatar" src="profile.jpg" alt="Portrait of Aditya Nukala">
+      <div class="role">Product Leader · Enterprise Data Platforms · Digital Modernization</div>
       <h1>Hi, I'm <span>Aditya Nukala</span></h1>
-      <p class="lead">[Your role, e.g. Software Engineer] who builds [what you build] for [who it helps].</p>
+      <p class="lead">I turn complex enterprise and data platform challenges into clear product strategy, roadmaps and measurable outcomes.</p>
       <div class="btns">
-        <a class="btn primary" href="#projects">View my work</a>
+        <a class="btn primary" href="#impact">See my impact</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
+      <p class="loc">Bengaluru, Karnataka, India</p>
     </div>
 
     <section id="about">
       <div class="wrap">
         <h2>About</h2>
-        <p class="sub">A short intro.</p>
-        <p style="max-width:680px; margin-bottom:24px;">
-          [Write two or three sentences about yourself: what you do, what you care about, and what you're looking for next.]
+        <p class="sub">18+ years across retail, e-commerce and enterprise platforms.</p>
+        <p style="max-width:720px; margin-bottom:24px;">
+          I've led greenfield modernization, foundational data products, subscription analytics and global technology delivery. I'm known for aligning senior stakeholders, leading cross-functional teams, simplifying complex ecosystems and building high-performing organizations from the ground up.
         </p>
         <div class="chips">
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">[Add your skill]</span>
-          <span class="chip">[Add your skill]</span>
+          <span class="chip">Product Strategy &amp; Roadmaps</span>
+          <span class="chip">Data Products &amp; Platforms</span>
+          <span class="chip">Enterprise Modernization</span>
+          <span class="chip">Stakeholder Alignment</span>
+          <span class="chip">Cross-Functional Leadership</span>
+          <span class="chip">Product Discovery &amp; Delivery</span>
+          <span class="chip">Metadata, Lineage &amp; Data Trust</span>
+          <span class="chip">E-commerce &amp; Subscriptions</span>
+          <span class="chip">Agile Product Management</span>
+          <span class="chip">Production Reliability &amp; Observability</span>
         </div>
       </div>
     </section>
 
-    <section id="projects">
+    <section id="impact">
       <div class="wrap">
-        <h2>Projects</h2>
-        <p class="sub">A few things I've built.</p>
+        <h2>Selected impact</h2>
+        <p class="sub">Outcomes from my work.</p>
         <div class="grid">
-          <a class="card" href="#">
-            <h3>Project One</h3>
-            <p>[One sentence on what it does and the problem it solves.]</p>
-            <span class="tags">Tech · Tech · Tech</span>
-          </a>
-          <a class="card" href="#">
-            <h3>Project Two</h3>
-            <p>[One sentence on what it does and the problem it solves.]</p>
-            <span class="tags">Tech · Tech · Tech</span>
-          </a>
-          <a class="card" href="#">
-            <h3>Project Three</h3>
-            <p>[One sentence on what it does and the problem it solves.]</p>
-            <span class="tags">Tech · Tech · Tech</span>
-          </a>
+          <div class="card">
+            <div class="stat">~$4B</div>
+            <h3>Mainframe replacement</h3>
+            <p>Led strategy and delivery of greenfield Accounts Payable and Receivable capabilities for an order-processing platform, replacing a mainframe system supporting about $4B in revenue.</p>
+            <span class="tags">Nike · Enterprise modernization</span>
+          </div>
+          <div class="card">
+            <div class="stat">Metadata</div>
+            <h3>Central metadata platform</h3>
+            <p>Set the vision and roadmap for a single trusted source of data-asset metadata, surfacing lineage, provenance and freshness signals.</p>
+            <span class="tags">Nike · Data trust</span>
+          </div>
+          <div class="card">
+            <div class="stat">~75%</div>
+            <h3>Revenue-leakage prevention</h3>
+            <p>Took a reporting and analytics product for the subscription business from concept to launch, contributing to about 75% year-over-year revenue-leakage prevention.</p>
+            <span class="tags">Dell Technologies · Subscription analytics</span>
+          </div>
+          <div class="card">
+            <div class="stat">~38%</div>
+            <h3>Client revenue growth</h3>
+            <p>Delivered zero downtime during peak holiday periods and cut abandoned carts through sustained monitoring for retail e-commerce clients.</p>
+            <span class="tags">Cavisson Systems · Performance &amp; reliability</span>
+          </div>
+          <div class="card">
+            <div class="stat">~60%</div>
+            <h3>Fewer critical incidents</h3>
+            <p>Guided an end-to-end security analytics data-pipeline proof of concept, contributing to about 60% fewer critical security incidents.</p>
+            <span class="tags">AiEnterprise · Data engineering</span>
+          </div>
+          <div class="card">
+            <div class="stat">0 to 20</div>
+            <h3>Built an offshore unit</h3>
+            <p>Founded and scaled an India offshore unit from inception to a 20-member organization, and delivered a B2C MVP in five months.</p>
+            <span class="tags">8L Design · Team building</span>
+          </div>
         </div>
       </div>
     </section>
@@ -167,18 +206,78 @@
     <section id="experience">
       <div class="wrap">
         <h2>Experience</h2>
-        <p class="sub">Where I've worked and studied.</p>
+        <p class="sub">Where I've worked.</p>
         <ul class="timeline">
           <li>
-            <div class="when">[Year – Present]</div>
-            <h3>[Role] · [Company]</h3>
-            <p style="color:var(--muted)">[What you did and the result.]</p>
+            <div class="when">Oct 2022 – Present · Bengaluru</div>
+            <h3>Product Manager <span>· Nike</span></h3>
+            <ul>
+              <li>Spearheaded strategy and end-to-end delivery of greenfield Accounts Payable and Receivable capabilities for an order-processing platform, advancing the replacement of a mainframe supporting about $4B in revenue.</li>
+              <li>Directed a portfolio of data products across Consumer and Marketplace Data Foundations, aligning business, analytics, engineering and governance leaders.</li>
+              <li>Drove data-asset rationalization, uncovering redundant tables and views and simplifying the data footprint.</li>
+              <li>Established the vision and roadmap for a central metadata platform, connecting data products to metrics, KPIs and dashboards.</li>
+            </ul>
           </li>
           <li>
-            <div class="when">[Year – Year]</div>
-            <h3>[Role or Degree] · [Company or School]</h3>
-            <p style="color:var(--muted)">[What you did and the result.]</p>
+            <div class="when">Aug 2020 – Oct 2022 · Bengaluru</div>
+            <h3>Product Manager <span>· Dell Technologies</span></h3>
+            <ul>
+              <li>Led strategy and concept-to-launch delivery of a reporting and analytics product for the subscription business, contributing to about 75% year-over-year revenue-leakage prevention.</li>
+              <li>Owned the roadmap and translated complex subscription needs into prioritized capabilities.</li>
+            </ul>
           </li>
+          <li>
+            <div class="when">Oct 2019 – Aug 2020 · Bengaluru</div>
+            <h3>Project Manager, Data Engineering &amp; Data Science <span>· AiEnterprise Inc.</span></h3>
+            <ul>
+              <li>Guided a cross-functional team building an end-to-end security analytics pipeline proof of concept, from ingestion to visualization.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="when">Apr 2017 – Oct 2019 · Hyderabad</div>
+            <h3>Technical Manager <span>· Cavisson Systems, Inc.</span></h3>
+            <ul>
+              <li>Led performance engineering and production-reliability engagements for retail e-commerce clients, enabling zero downtime at peak holiday periods.</li>
+              <li>Drove monitoring and issue resolution that reduced abandoned carts and contributed to nearly 38% client-revenue growth.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="when">Oct 2014 – Apr 2017 · Hyderabad</div>
+            <h3>Senior Product Delivery Manager <span>· 8L Design Inc.</span></h3>
+            <ul>
+              <li>Founded and scaled the India offshore unit for a US-based services company to a 20-member organization.</li>
+              <li>Directed production support for US retail clients, including American Eagle, and led adoption of Splunk and New Relic.</li>
+              <li>Led MVP delivery of a B2C product in five months, helping the founders advance fundraising conversations.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="when">Feb 2013 – Sep 2014 · Hyderabad</div>
+            <h3>Associate / Junior Project Manager <span>· Nisum Technologies, Inc.</span></h3>
+            <ul>
+              <li>Managed technology-delivery initiatives and created a biweekly internal forum for engineers to share emerging technologies and best practices.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="when">Dec 2005 – Feb 2013 · Bengaluru</div>
+            <h3>Lead Solutions Engineer (four roles over seven years) <span>· Oracle India Pvt. Ltd.</span></h3>
+            <ul>
+              <li>Delivered Oracle application solutions and guided customers through complex implementations.</li>
+              <li>Introduced an in-house implementation approach that cut delivery from nine months to under four; won the BRAVO Consultant of the Quarter award.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <h2>Education &amp; certifications</h2>
+        <p class="sub">&nbsp;</p>
+        <ul class="edu">
+          <li><strong>Executive MBA, Product Leadership</strong><small>Institute of Product Leadership · Aug 2026 – Mar 2028 (in progress)</small></li>
+          <li><strong>Bachelor of Engineering, Electronics &amp; Communication Engineering</strong><small>Anna University · 2001 – 2005</small></li>
+          <li><strong>Postgraduate Certificate in Big Data Analytics and Optimization</strong><small>INSOFE</small></li>
+          <li><strong>Product Management Certification</strong><small>ISB</small></li>
         </ul>
       </div>
     </section>
