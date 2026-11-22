@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aditya Nukala · Product Leader</title>
+  <meta name="description" content="Aditya Nukala: product leader with 18+ years in enterprise data platforms and digital modernization.">
+  <style>
+    :root {
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --ink: #1d1d1f; --grey: #6e6e73; --soft: #86868b;
+      --paper: #fff; --mist: #f5f5f7; --night: #0b0b0c;
+      --accent: #0071e3;                      /* the only colour: links and the one primary action */
+      --ease: cubic-bezier(.28, .11, .32, 1);
+      --pad: clamp(88px, 14vw, 160px);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      font-size: clamp(17px, 1.6vw, 19px);
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    /* Nav: 48px, translucent, small links */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 10; height: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 max(16px, 4vw);
+      background: rgba(255, 255, 255, .72);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      font-size: 12px;
+    }
+    .nav a { text-decoration: none; color: var(--ink); }
+    .nav .name { font-weight: 600; }
+    .nav ul { display: flex; gap: 24px; list-style: none; }
+    .nav ul a { color: var(--grey); }
+    .nav ul a:hover { color: var(--ink); }
+
+    /* Sections: full-bleed, alternating, one idea each */
+    section {
+      min-height: 100vh; min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: var(--pad) max(20px, 5vw);
+      text-align: center;
+    }
+    .paper { background: var(--paper); }
+    .mist  { background: var(--mist); }
+    .night {
+      background: var(--night) radial-gradient(ellipse at 50% 0%, rgba(41, 151, 255, .18), transparent 60%) no-repeat;
+      color: #f5f5f7;
+    }
+    .col { width: 100%; max-width: 980px; margin: 0 auto; }
+
+    /* Type scale */
+    h1 { font-size: clamp(48px, 9vw, 112px); font-weight: 700; letter-spacing: -.035em; line-height: 1.02; }
+    h2 { font-size: clamp(36px, 6vw, 72px); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; }
+    .sub { font-size: clamp(20px, 2.4vw, 28px); font-weight: 400; letter-spacing: -.01em; line-height: 1.3; color: var(--grey); margin: 24px auto 0; max-width: 28ch; }
+    .body { max-width: 34em; margin: 28px auto 0; color: var(--grey); }
+    .eyebrow { font-size: 14px; font-weight: 600; line-height: 1.2; color: var(--grey); margin-bottom: 20px; }
+    .big { font-size: clamp(64px, 12vw, 160px); font-weight: 700; letter-spacing: -.05em; line-height: 1; }
+    .caption { color: var(--grey); margin-top: 8px; }
+    .night .sub, .night .body, .night .caption, .night .eyebrow { color: #a1a1a6; }
+    .night a.link { color: #2997ff; }
+
+    /* Actions */
+    .actions { margin-top: 40px; display: flex; gap: 28px; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      border-radius: 980px; padding: 12px 22px; font-size: 17px; transition: background .2s;
+    }
+    .cta:hover { background: #0077ed; filter: brightness(.92); }
+    .cta svg { width: 20px; height: 20px; fill: currentColor; }
+    a.link { color: var(--accent); text-decoration: none; }
+    a.link:hover { text-decoration: underline; }
+    a.link::after { content: " ›"; }
+
+    .avatar { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin-bottom: 32px; }
+    .loc { margin-top: 20px; color: var(--grey); font-size: 15px; }
+
+    /* Expertise list */
+    .skills { list-style: none; margin: 48px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; text-align: left; }
+    .skills li { padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, .16); }
+
+    /* Impact: all six results on one screen, quiet cards */
+    section.impact { padding: 72px max(20px, 5vw) 32px; }
+    .impact h2 { font-size: clamp(32px, 5vw, 56px); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 20px); margin: clamp(20px, 3vh, 36px) auto 0; max-width: 1180px; text-align: left; }
+    .card { background: var(--mist); border-radius: 28px; padding: clamp(18px, 2.4vw, 32px); }
+    .card .num { font-size: clamp(36px, 4.6vw, 64px); font-weight: 700; letter-spacing: -.05em; line-height: 1; margin-bottom: 8px; }
+    .card h3 { font-size: clamp(15px, 1.4vw, 18px); font-weight: 600; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 6px; }
+    .card p { font-size: clamp(12.5px, 1.1vw, 14.5px); line-height: 1.45; color: var(--grey); }
+    .card .tag { margin-top: 8px; font-size: 12px; color: var(--soft); }
+
+    /* Roles: one per screen */
+    .role-title { margin-top: 20px; font-size: clamp(20px, 2.4vw, 28px); font-weight: 400; letter-spacing: -.01em; line-height: 1.3; color: var(--grey); }
+    .role-meta { margin-top: 6px; font-size: 15px; color: var(--soft); }
+    .night .role-title { color: #a1a1a6; }
+    .points { list-style: none; margin: 40px auto 0; max-width: 40em; text-align: left; }
+    .points li { padding: 14px 0; border-top: 1px solid rgba(128, 128, 128, .28); color: var(--grey); }
+    .night .points li { color: #a1a1a6; }
+
+    .edu { list-style: none; margin: 48px auto 0; max-width: 40em; text-align: left; }
+    .edu li { padding: 16px 0; border-top: 1px solid rgba(255, 255, 255, .16); }
+    .edu strong { display: block; font-weight: 600; }
+    .edu small { color: #a1a1a6; font-size: 15px; }
+
+    footer { margin-top: 80px; font-size: 12px; color: var(--soft); }
+
+    /* Motion: a whisper */
+    .rv { opacity: 0; transform: translateY(32px) scale(.985); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv.d1 { transition-delay: .1s; } .rv.d2 { transition-delay: .2s; }
+    .no-js .rv { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rv { opacity: 1; transform: none; transition: none; }
+    }
+
+    @media (max-height: 800px) and (min-width: 521px) {
+      section.impact { padding: 60px max(20px, 5vw) 16px; }
+      .impact h2 { font-size: clamp(28px, 4vw, 44px); }
+      .card { padding: 16px 20px; }
+      .card .num { font-size: clamp(32px, 4vw, 48px); }
+      .card p { font-size: 12.5px; line-height: 1.4; }
+    }
+    @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 760px) { .skills { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) {
+      section.impact { padding: 64px 16px 16px; }
+      .cards { gap: 10px; }
+      .card { border-radius: 20px; padding: 14px; }
+      .impact h2 { font-size: 30px; }
+      .cards { margin-top: 14px; }
+      .card .num { font-size: 32px; margin-bottom: 4px; }
+      .card h3 { font-size: 14px; }
+      .card p { font-size: 11px; line-height: 1.35; }
+      .card .tag { display: none; }
+      .nav ul { gap: 16px; }
+    }
+  </style>
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+  <header class="nav">
+    <a class="name" href="#top">Aditya Nukala</a>
+    <nav><ul>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="paper">
+      <div class="col">
+        <!-- Save your photo as profile.jpg next to this file -->
+        <img class="avatar rv" src="profile.jpg" alt="Portrait of Aditya Nukala" onerror="this.remove()">
+        <p class="eyebrow rv">Product Leader · Enterprise Data Platforms · Digital Modernization</p>
+        <h1 class="rv d1">Complex made clear.</h1>
+        <p class="sub rv d2">I turn complex enterprise and data platform challenges into clear product strategy, roadmaps and measurable outcomes.</p>
+        <p class="loc rv d2">Aditya Nukala · Bengaluru, Karnataka, India</p>
+        <div class="actions rv d2">
+          <a class="cta" href="#impact">See my impact</a>
+          <a class="link" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18+ years -->
+    <section class="mist" id="about">
+      <div class="col">
+        <div class="big rv">18+</div>
+        <p class="caption rv d1">years across retail, e-commerce and enterprise platforms.</p>
+        <h2 class="rv d1" style="margin-top:56px">Built from the ground up.</h2>
+        <p class="body rv d2">I've led greenfield modernization, foundational data products, subscription analytics and global technology delivery. I'm known for aligning senior stakeholders, leading cross-functional teams, simplifying complex ecosystems and building high-performing organizations from the ground up.</p>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="night">
+      <div class="col">
+        <h2 class="rv">Where I work.</h2>
+        <ul class="skills rv d1">
+          <li>Product Strategy &amp; Roadmaps</li>
+          <li>Data Products &amp; Platforms</li>
+          <li>Enterprise Modernization</li>
+          <li>Stakeholder Alignment</li>
+          <li>Cross-Functional Leadership</li>
+          <li>Product Discovery &amp; Delivery</li>
+          <li>Metadata, Lineage &amp; Data Trust</li>
+          <li>E-commerce &amp; Subscriptions</li>
+          <li>Agile Product Management</li>
+          <li>Production Reliability &amp; Observability</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Impact: six results, one screen -->
+    <section class="paper impact" id="impact">
+      <div class="col" style="max-width:1180px">
+        <h2 class="rv">Selected impact.</h2>
+        <div class="cards">
+          <article class="card rv">
+            <div class="num">~$4B</div>
+            <h3>Mainframe replacement.</h3>
+            <p>Led strategy and delivery of greenfield Accounts Payable and Receivable capabilities for an order-processing platform, replacing a mainframe system supporting about $4B in revenue.</p>
+            <p class="tag">Nike · Enterprise modernization</p>
+          </article>
+          <article class="card rv d1">
+            <div class="num" aria-hidden="true">&nbsp;</div>
+            <h3>Central metadata platform.</h3>
+            <p>Set the vision and roadmap for a single trusted source of data-asset metadata, surfacing lineage, provenance and freshness signals.</p>
+            <p class="tag">Nike · Data trust</p>
+          </article>
+          <article class="card rv d2">
+            <div class="num">~75%</div>
+            <h3>Revenue-leakage prevention.</h3>
+            <p>Took a reporting and analytics product for the subscription business from concept to launch, contributing to about 75% year-over-year revenue-leakage prevention.</p>
+            <p class="tag">Dell Technologies · Subscription analytics</p>
+          </article>
+          <article class="card rv">
+            <div class="num">~38%</div>
+            <h3>Client revenue growth.</h3>
+            <p>Delivered zero downtime during peak holiday periods and cut abandoned carts through sustained monitoring for retail e-commerce clients.</p>
+            <p class="tag">Cavisson Systems · Performance &amp; reliability</p>
+          </article>
+          <article class="card rv d1">
+            <div class="num">~60%</div>
+            <h3>Fewer critical incidents.</h3>
+            <p>Guided an end-to-end security analytics data-pipeline proof of concept, contributing to about 60% fewer critical security incidents.</p>
+            <p class="tag">AiEnterprise · Data engineering</p>
+          </article>
+          <article class="card rv d2">
+            <div class="num">20</div>
+            <h3>A team, from inception.</h3>
+            <p>Founded and scaled an India offshore unit from inception to a 20-member organization, and delivered a B2C MVP in five months.</p>
+            <p class="tag">8L Design · Team building</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roles: one per screen -->
+    <section class="mist" id="experience">
+      <div class="col">
+        <h2 class="rv">Nike.</h2>
+        <p class="role-title rv d1">Product Manager</p>
+        <p class="role-meta rv d1">Oct 2022 – Present · Bengaluru</p>
+        <ul class="points rv d2">
+          <li>Spearheaded strategy and end-to-end delivery of greenfield Accounts Payable and Receivable capabilities for an order-processing platform, advancing the replacement of a mainframe supporting about $4B in revenue.</li>
+          <li>Directed a portfolio of data products across Consumer and Marketplace Data Foundations, aligning business, analytics, engineering and governance leaders.</li>
+          <li>Drove data-asset rationalization, uncovering redundant tables and views and simplifying the data footprint.</li>
+          <li>Established the vision and roadmap for a central metadata platform, connecting data products to metrics, KPIs and dashboards.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="night">
+      <div class="col">
+        <h2 class="rv">Dell Technologies.</h2>
+        <p class="role-title rv d1">Product Manager</p>
+        <p class="role-meta rv d1">Aug 2020 – Oct 2022 · Bengaluru</p>
+        <ul class="points rv d2">
+          <li>Led strategy and concept-to-launch delivery of a reporting and analytics product for the subscription business, contributing to about 75% year-over-year revenue-leakage prevention.</li>
+          <li>Owned the roadmap and translated complex subscription needs into prioritized capabilities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="paper">
+      <div class="col">
+        <h2 class="rv">AiEnterprise Inc.</h2>
+        <p class="role-title rv d1">Project Manager, Data Engineering &amp; Data Science</p>
+        <p class="role-meta rv d1">Oct 2019 – Aug 2020 · Bengaluru</p>
+        <ul class="points rv d2">
+          <li>Guided a cross-functional team building an end-to-end security analytics pipeline proof of concept, from ingestion to visualization.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mist">
+      <div class="col">
+        <h2 class="rv">Cavisson Systems, Inc.</h2>
+        <p class="role-title rv d1">Technical Manager</p>
+        <p class="role-meta rv d1">Apr 2017 – Oct 2019 · Hyderabad</p>
+        <ul class="points rv d2">
+          <li>Led performance engineering and production-reliability engagements for retail e-commerce clients, enabling zero downtime at peak holiday periods.</li>
+          <li>Drove monitoring and issue resolution that reduced abandoned carts and contributed to nearly 38% client-revenue growth.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="night">
+      <div class="col">
+        <h2 class="rv">8L Design Inc.</h2>
+        <p class="role-title rv d1">Senior Product Delivery Manager</p>
+        <p class="role-meta rv d1">Oct 2014 – Apr 2017 · Hyderabad</p>
+        <ul class="points rv d2">
+          <li>Founded and scaled the India offshore unit for a US-based services company to a 20-member organization.</li>
+          <li>Directed production support for US retail clients, including American Eagle, and led adoption of Splunk and New Relic.</li>
+          <li>Led MVP delivery of a B2C product in five months, helping the founders advance fundraising conversations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="paper">
+      <div class="col">
+        <h2 class="rv">Nisum Technologies, Inc.</h2>
+        <p class="role-title rv d1">Associate / Junior Project Manager</p>
+        <p class="role-meta rv d1">Feb 2013 – Sep 2014 · Hyderabad</p>
+        <ul class="points rv d2">
+          <li>Managed technology-delivery initiatives and created a biweekly internal forum for engineers to share emerging technologies and best practices.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mist">
+      <div class="col">
+        <h2 class="rv">Oracle India Pvt. Ltd.</h2>
+        <p class="role-title rv d1">Lead Solutions Engineer (four roles over seven years)</p>
+        <p class="role-meta rv d1">Dec 2005 – Feb 2013 · Bengaluru</p>
+        <ul class="points rv d2">
+          <li>Delivered Oracle application solutions and guided customers through complex implementations.</li>
+          <li>Introduced an in-house implementation approach that cut delivery from nine months to under four; won the BRAVO Consultant of the Quarter award.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="night" id="education">
+      <div class="col">
+        <h2 class="rv">Education and certifications.</h2>
+        <ul class="edu rv d1">
+          <li><strong>Executive MBA, Product Leadership</strong><small>Institute of Product Leadership · Aug 2026 – Mar 2028 (in progress)</small></li>
+          <li><strong>Bachelor of Engineering, Electronics &amp; Communication Engineering</strong><small>Anna University · 2001 – 2005</small></li>
+          <li><strong>Postgraduate Certificate in Big Data Analytics and Optimization</strong><small>INSOFE</small></li>
+          <li><strong>Product Management Certification</strong><small>ISB</small></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="paper" id="contact">
+      <div class="col">
+        <h2 class="rv">Let's connect.</h2>
+        <p class="sub rv d1">The best way to reach me is on LinkedIn.</p>
+        <div class="actions rv d2">
+          <a class="cta" href="https://www.linkedin.com/in/anukala/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+        <footer>© <span id="year"></span> Aditya Nukala</footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const items = document.querySelectorAll('.rv');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add('in'));
+    }
+  </script>
+</body>
+</html>
