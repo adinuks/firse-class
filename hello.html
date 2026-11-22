@@ -22,12 +22,34 @@
       font-size: 6rem;
       line-height: 1.1;
     }
+    #datetime {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      color: #bbb;
+    }
     @media (max-width: 600px) {
       h1 { font-size: 3rem; }
+      #datetime { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
   <h1>Hello from Aditya</h1>
+  <p id="datetime"></p>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('en-GB', {
+        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+      });
+      const time = now.toLocaleTimeString('en-US', {
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      document.getElementById('datetime').textContent = date + ' · ' + time;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
 </body>
 </html>
